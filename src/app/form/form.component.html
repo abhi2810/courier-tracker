@@ -1,0 +1,13 @@
+<section fxLayout="column" fxLayoutAlign="center center" style="margin-top: 20px;">
+  <mat-card>
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f=ngForm (ngSubmit)="onSubmit(f)">
+      <mat-form-field>
+        <input type="number" matInput placeholder="Courier Id" #passInput="ngModel" ngModel name="courierId" minlength="1" required>
+        <mat-hint>Enter Courier Id.</mat-hint>
+        <mat-error *ngIf="passInput.hasError('required')">Courier Id is required.</mat-error>
+      </mat-form-field>
+      <mat-progress-spinner diameter="35" *ngIf="isLoading" mode="indeterminate"></mat-progress-spinner>
+      <button *ngIf="!isLoading" type="submit" color="primary" [disabled]="f.invalid" mat-raised-button>Track</button>
+    </form>
+  </mat-card>
+</section>
